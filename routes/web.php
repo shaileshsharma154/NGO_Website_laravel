@@ -30,6 +30,9 @@ Route::get('/services',[ServicesController::class, 'index']);
 
 Route::get('/contact_us',[Contact_usController::class, 'index']);
 
+Route::post('/fetchEnquiryFormData',[Contact_usController::class, 'submitData']);
+//fetchEnquiryFormData
+
 
 /*
 Route::get('/sample', function () {

@@ -5,6 +5,17 @@
 <div class="page-nav no-margin row">
         <div class="container">
             <div class="row">
+
+
+            <div class="row cont-row" id="SuccessMessage">
+                
+                   <div  class="col-sm-12">
+                        @if(session('msg'))
+                            <div class="alert alert-success">{{session('msg') }}</div>
+                        @endif
+                    </div>
+            </div>
+
                 <h2>Contact Us</h2>
                 <ul>
                     <li> <a href="https://www.bharatparivaartrust.org/index.php"><i class="fas fa-home"></i> Home</a></li>
@@ -29,7 +40,8 @@
     <div class="row contact-rooo no-margin">
         <div class="container">
             <div class="row">
-
+            
+            
 
                 <div style="padding:20px" class="col-sm-7">
 				<?php
@@ -40,15 +52,26 @@
 				?>
 				<h2 class="text-success"><?php echo $message; ?></h2> <br>
 				
-                   <form action="enquiry_form_controller.php" method="post"> 
+                   <form action="{{url('/')}}/fetchEnquiryFormData" method="post"> 
+                    @csrf
+                    <?php /*
+       // print_r($errors->all());  //for all error
+    */ ?>
+
 					<h2 >Contact Form</h2> <br>
                     <div class="row cont-row">
                         <div  class="col-sm-3"><label>Enter First Name </label><span>:</span></div>
-                        <div class="col-sm-8"><input type="text" placeholder="Enter Name" name="first_name" value="" class="form-control input-sm"  required></div>
+                        <div class="col-sm-8"><input type="text" placeholder="Enter Name" name="first_name" value="" class="form-control input-sm"  >
+                        @error('first_name')
+                        <div class="text text-danger">{{$message}}</div>
+                    @enderror
                     </div>
+                    </div>
+                    
+
 					<div class="row cont-row">
                         <div  class="col-sm-3"><label>Enter Last Name </label><span>:</span></div>
-                        <div class="col-sm-8"><input type="text" placeholder="Enter Name" name="last_name" value="" class="form-control input-sm"  required></div>
+                        <div class="col-sm-8"><input type="text" placeholder="Enter Name" name="last_name" value="" class="form-control input-sm"  ></div>
                     </div>
                     <div  class="row cont-row">
                         <div  class="col-sm-3"><label>Email Address </label><span>:</span></div>
@@ -56,12 +79,12 @@
                     </div>
                     <div  class="row cont-row">
                         <div  class="col-sm-3"><label>Mobile Number</label><span>:</span></div>
-                        <div class="col-sm-8"><input type="text" name="mobile_number" value="" placeholder="Enter Mobile Number" class="form-control input-sm" required ></div>
+                        <div class="col-sm-8"><input type="text" name="mobile_number" value="" placeholder="Enter Mobile Number" class="form-control input-sm"  ></div>
                     </div>
                     <div  class="row cont-row">
                         <div  class="col-sm-3"><label>Enter Message</label><span>:</span></div>
                         <div class="col-sm-8">
-                            <textarea rows="5" placeholder="Enter Your Message" name="message" value="" class="form-control input-sm" required></textarea>
+                            <textarea rows="5" placeholder="Enter Your Message" name="message" value="" class="form-control input-sm" ></textarea>
                         </div>
                     </div>
                     <div style="margin-top:10px;" class="row">
@@ -110,4 +133,14 @@
         </div>
 
     </div>
+   
+<script>
+$(document).ready(function() {
+      setTimeout(function() {
+          $("#SuccessMessage").fadeOut(1500);
+      }, 3000);
+ 
+});
+    </script>
+
 @endsection	 	

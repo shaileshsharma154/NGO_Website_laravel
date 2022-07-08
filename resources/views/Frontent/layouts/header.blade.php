@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="assets/plugins/slider/css/owl.carousel.min.css">
     <link rel="stylesheet" href="assets/plugins/slider/css/owl.theme.default.css">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
-	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <meta name ='title' content = 'bharat parivar trust'>
 
 <meta name = 'keywords' content = 'bharat, parivar, trust, Bharat,BHARAT, Parivaar, PARIVAAR, parivar, pariwar, Trust, TRUST, NGO, ngo, help, Help, poor,Doner,doner, poor people, helping, helping hand, Ngo, bhaarat'>
